@@ -1,0 +1,22 @@
+provider "azurerm" {
+  features = {}
+}
+
+module "function_app" {
+  source = "./modules/windows_function_app"
+
+  app_name                   = "example-function-app"
+  resource_group_name        = "example-resource-group"
+  location                   = "East US"
+  storage_account_name       = "examplestorageaccount"
+  storage_account_access_key = "exampleaccesskey"
+  service_plan_id            = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/example-rg/providers/Microsoft.Web/serverfarms/example-app-service-plan"
+}
+
+output "function_app_id" {
+  value = module.function_app.function_app_id
+}
+
+output "function_app_url" {
+  value = module.function_app.function_app_url
+}
