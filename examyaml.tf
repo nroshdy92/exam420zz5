@@ -1,4 +1,4 @@
-windowsfunctionapp:
+windowsfunctionapp=:
   - name: examplewindowsfunctionapp
     account_tier: Standard
     account_replication_type: lrs
